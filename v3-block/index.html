@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div class="game-stats">
+            <span>Level: <span id="levelDisplay">1</span></span>
+            <span>Coins: <span id="coinCount">0</span></span>
+            <span>Score: <span id="scoreCount">0</span></span>
+        </div>
+
+        <div class="instructions">
+            <h2>Level 1: Forest Adventure</h2>
+            <ul>
+                <li>← → Arrow keys to move</li>
+                <li>↑ Arrow key to jump</li>
+                <li>Double jump available in air</li>
+                <li>SPACE to attack with weapon</li>
+                <li>Collect coins for points</li>
+                <li>Press H to toggle help</li>
+                <li>Press L to show level info</li>
+            </ul>
+        </div>
+
+        <!-- <div class="game-tips">
+            <p>👍 <span class="good">Coins</span> - Collect these for points!</p>
+            <p>⚠️ <span class="bad">Foxes</span> - Attack them with your sword!</p>
+            <p>🗡️ <span class="good">Chests</span> - Find a sword to defeat enemies!</p>
+        </div> -->
+    </div>
+
+    <script type="module" src="levels.js"></script>
+    <script type="module" src="entities.js"></script>
+    <script type="module" src="core.js"></script>
+</body>
+</html>

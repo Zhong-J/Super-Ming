@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2C3E50;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#gameCanvas {
+    border: 5px solid #2C3E50;
+    border-radius: 10px;
+    background-color: #6B8CFF;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 1200px;
+    height: 600px;
+}
+
+.game-stats {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.game-stats span {
+    margin-right: 25px;
+}
+
+.instructions {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+}
+
+.instructions h2 {
+    color: #FFD700;
+    margin-bottom: 15px;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.instructions ul {
+    list-style-type: none;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.game-tips {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.game-tips .good {
+    color: #FFD700;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.game-tips .bad {
+    color: #FF4444;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+}
+
+.level-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 30px 50px;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 100;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.level-message h2 {
+    color: #FFD700;
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.level-message p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.level-message span {
+    color: #888;
+    font-size: 16px;
+}
+
+.loading-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 25px 40px;
+    border-radius: 15px;
+    font-size: 24px;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.victory-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 1000;
+}
+
+.victory-screen h1 {
+    color: #FFD700;
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.victory-screen p {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.victory-screen button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.victory-screen button:hover {
+    background-color: #45a049;
+}
+
+@media (max-height: 700px) {
+    #gameCanvas {
+        width: 1000px;
+        height: 500px;
+    }
+}
