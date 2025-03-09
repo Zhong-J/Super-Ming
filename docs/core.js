@@ -57,7 +57,9 @@ export const gameState = {
     objective: '',
     requireCoins: 0,
     requireEnemies: 0,
-    lastLevelMessage: null
+    lastLevelMessage: null,
+    deathCount: 0,
+    startTime: Date.now()
 };
 
 // Input handling
@@ -156,6 +158,10 @@ window.resetLevel = function() {
     player.isInvulnerable = true; // Make player temporarily invulnerable after respawn
     player.lastHitTime = Date.now();
     camera.x = 0;
+    
+    // Reset score and increment death count
+    gameState.score = 0;
+    gameState.deathCount++;
     
     // Reset flying and power-up states on death
     player.canFly = false;
@@ -1181,10 +1187,15 @@ function nextLevel() {
 function showVictoryScreen() {
     const victoryScreen = document.createElement('div');
     victoryScreen.className = 'victory-screen';
+    const completionTime = Math.floor((Date.now() - gameState.startTime) / 1000); // Convert to seconds
+    const minutes = Math.floor(completionTime / 60);
+    const seconds = completionTime % 60;
     victoryScreen.innerHTML = `
         <h1>Congratulations!</h1>
         <p>You've completed all levels!</p>
         <p>Final Score: ${gameState.score}</p>
+        <p>Completion Time: ${minutes}m ${seconds}s</p>
+        <p>Total Deaths: ${gameState.deathCount}</p>
         <button onclick="location.reload()">Play Again</button>
     `;
     document.body.appendChild(victoryScreen);
